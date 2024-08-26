@@ -43,7 +43,7 @@ class Player {
 
 class Monster {
     constructor(stage, name = 'Thaemine', hp = 100) {
-        this.hp = hp + stage * Math.floor(Math.random() * 80 + 10);
+        this.hp = hp + stage * Math.floor(Math.random() * 80 + 40);
         this.name = name;
         this.stage = stage;
     }
