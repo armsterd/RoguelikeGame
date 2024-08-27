@@ -110,6 +110,9 @@ const battle = async (stage, player, monster) => {
         // 플레이어의 선택에 따라 다음 행동 처리
         logs.push(chalk.green(`${choice}를 선택하셨습니다.`));
         logs.forEach((log) => console.log(log));
+
+        //switch를 통채로 함수로 만들고, 파라미터로 logs, 등등을 집어넣어서 실행
+
         switch (choice) {
             case '1':
                 logs.shift();
