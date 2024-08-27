@@ -12,20 +12,20 @@ class Player {
         const damage = Math.floor(Math.random() * 70 + 10);
         console.log(chalk.yellowBright(`${this.name}이 ${target.name}을 공격합니다.`));
         console.log(chalk.yellow(`${this.name}이 ${target.name}에게 ${damage}만큼의 피해를 줍니다.`));
-        target.attacked(this, damage);
+        target.underAttack(this, damage);
     }
 
-    attacked(target, damage) {
+    underAttack(target, damage) {
         const percent = Math.random();
         if (percent < 0.2) {
-            this.parrying(target);
+            this.parry(target);
         } else {
             this.hp -= damage;
             console.log(chalk.blueBright(`${this.name}님의 체력이 ${this.hp}만큼 남았습니다.`));
         }
     }
 
-    parrying(target) {
+    parry(target) {
         console.log(chalk.blueBright(`${this.name}이 패링에 성공했습니다.`));
         this.attack(target);
     }
@@ -53,20 +53,20 @@ class Monster {
         const damage = Math.floor(Math.random() * 20 + 10);
         console.log(chalk.redBright(`${this.name}이 ${target.name}을 공격합니다.`));
         console.log(chalk.red(`${this.name}이 ${target.name}에게 ${damage}만큼의 피해를 줍니다.`));
-        target.attacked(this, damage);
+        target.underAttack(this, damage);
     }
 
-    attacked(target, damage) {
+    underAttack(target, damage) {
         const percent = Math.random();
         if (percent < 0.09) {
-            this.parrying(target);
+            this.parry(target);
         } else {
             this.hp -= damage;
             console.log(chalk.redBright(`${this.name}님의 체력이 ${this.hp}만큼 남았습니다.`));
         }
     }
 
-    parrying(target) {
+    parry(target) {
         console.log(chalk.red(`${this.name}이 패링에 성공했습니다.`));
         this.attack(target);
     }
